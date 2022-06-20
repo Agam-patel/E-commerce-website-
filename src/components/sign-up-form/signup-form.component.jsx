@@ -5,6 +5,7 @@ import {
     creatUserDocumentfromauth,
 } from "../../utils/firebase.utils";
 import './sign-upform.styles.scss'
+
 import Button from "../button/button.component";
 const defaultformfields = {
     displayName: "",
@@ -15,7 +16,9 @@ const defaultformfields = {
 const SignUpForm = () => {
     const [formFields, setFormFields] = useState(defaultformfields);
     const { displayName, email, password, confirmPassword } = formFields;
-    console.log(formFields);
+    // console.log(formFields);
+    // console.log('hit');
+  
     const resetformfields = () => {
         setFormFields(defaultformfields);
     };
@@ -27,7 +30,7 @@ const SignUpForm = () => {
         }
         try {
             const { user } = await createuserwithemai(email, password);
-            console.log(user);
+ 
             await creatUserDocumentfromauth(user, { displayName });
             resetformfields();
         } catch (error) {

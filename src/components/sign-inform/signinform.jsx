@@ -15,22 +15,23 @@ const defaultformfields = {
 const SigninForm = () => {
     const [formFields, setFormFields] = useState(defaultformfields);
     const { email, password } = formFields;
-    console.log(formFields);
+    
+    // console.log(formFields);
     const resetformfields = () => {
         setFormFields(defaultformfields);
     };
     const signInWithGoogle = async () => {
-        const { user } = await signInWithGooglePopup();
-        await creatUserDocumentfromauth(user);
+     await signInWithGooglePopup();
+        
     };
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
-            const response = await Signinauthuseremailandpassword(
+            const {user} = await Signinauthuseremailandpassword(
                 email,
                 password
             );
-            console.log(response);
+        
             resetformfields();
         } catch (error) {
             if (error.code === "auth/wrong-password") {

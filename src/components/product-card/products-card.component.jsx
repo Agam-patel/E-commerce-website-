@@ -1,7 +1,12 @@
 import './product-card.syles.scss'
 import Button from '../button/button.component';
+import { useContext } from 'react';
+import { CartContext } from '../contexts/cart.context';
+
 const ProductCard=({product})=>{
 const{name,price,imageUrl}=product;
+const {addItemToCart}=useContext(CartContext)
+const addProductToCart=()=>addItemToCart(product);
     return(
         <div className='product-card-container'>
             <img src={imageUrl} alt="This is Image"/>
@@ -10,7 +15,7 @@ const{name,price,imageUrl}=product;
    
                 <span className="price">{price}</span>
             </div>
-            <Button buttontype='inverted'>Add to card</Button>
+            <Button onClick={addProductToCart} buttontype='inverted'>Add to card</Button>
 
         </div>
     )

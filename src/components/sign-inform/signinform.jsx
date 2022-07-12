@@ -2,11 +2,10 @@ import { useState } from "react";
 import FormInput from "../form-input/form-input.component";
 import {
     signInWithGooglePopup,
-    creatUserDocumentfromauth,
+    
     Signinauthuseremailandpassword,
 } from "../../utils/firebase.utils";
 
-import "./signinform.scss";
 import Button,{Button_Type_classe} from "../button/button.component";
 const defaultformfields = {
     email: "",
@@ -27,7 +26,7 @@ const SigninForm = () => {
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
-            const {user} = await Signinauthuseremailandpassword(
+             await Signinauthuseremailandpassword(
                 email,
                 password
             );

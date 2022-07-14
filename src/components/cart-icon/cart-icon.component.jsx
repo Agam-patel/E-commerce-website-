@@ -9,7 +9,7 @@ const CartIcon=()=>{
     const cartCount=useSelector(selectCartCount)
     const isCartOpen=useSelector(selectIsCartOpen)
 
-console.log(!isCartOpen)
+
     const toggleIscartoope=()=> dispatch(setIsCartOpen(!isCartOpen))
 return (
     <CartIconContainer onClick={toggleIscartoope}>

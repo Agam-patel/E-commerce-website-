@@ -8,7 +8,7 @@ import { fetchCategoriesStart, } from "../../store/categories/category.action";
 import { useDispatch } from "react-redux";
 
 const Shop = () => {
-    console.log('render from shop')
+   
     const dispatch=useDispatch();
     useEffect(() => {
 

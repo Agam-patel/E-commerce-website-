@@ -8,12 +8,12 @@ import Spinner from "../../components/spinner/spinner.component";
 import { useParams } from "react-router-dom";
 const Category = () => {
     const { category } = useParams();
-    console.log('render/re-render category component');
+  
     const categoriesMap=useSelector(selectCategoriesMap)
 const isLoading=useSelector(selectCategoriesIsLoading)
     const [products, setProducts] = useState([]);
     useEffect(() => {
-        console.log('effect fired calling setProducts')
+     
         setProducts(categoriesMap[category]);
     }, [category, categoriesMap]);
     return (

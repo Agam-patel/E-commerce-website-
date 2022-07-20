@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import {selectCartTotal} from './../../store/cart/cart.selector'
 import {selectCurrentUser} from './../../store/user/user.selector'
 
-import Button, { Button_Type_classe } from "../button/button.component";
+import  { Button_Type_classe } from "../button/button.component";
 import { PaymentFormContainer, Formcontainer,PaymentButton } from "./paymentformstyles";
 const PaymentForm = () => {
 
@@ -28,7 +28,7 @@ const PaymentForm = () => {
                 },
                 body:JSON.stringify({amount:amount*100})
             }).then(res=>res.json())
-            const {paymentIntent:{client_secret}}=response;
+            const {paymentIntent:{client_secret},}=response;
             const paymentResult=await stripe.confirmCardPayment(client_secret,{
                 payment_method:{
                     card:elements.getElement(CardElement),
@@ -38,7 +38,7 @@ const PaymentForm = () => {
                 }
             })
             if(paymentResult.error){
-                alert(paymentResult.error) 
+                console.log(paymentResult.error) 
             }else{
                 if(paymentResult.paymentIntent.status==='succeeded')
                 {
